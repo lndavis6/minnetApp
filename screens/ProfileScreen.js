@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   gridImgContainer: {
     padding: 1,
-    backgroundColor: "#CCC",
+    backgroundColor: "#fff",
   },
   image: {
     height: windowWidth * 0.33,
