@@ -76,7 +76,7 @@ function BottomTabNavigator() {
         component={PostScreen}
         options={{
           title: 'Post',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
         }}
       />
       <BottomTab.Screen
