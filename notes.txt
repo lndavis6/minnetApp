@@ -3,6 +3,7 @@ To do list for Minnet:
 PostScreen:
 Choose photo from library
 Choose NFT from wallet
+add audio
 
 ProfileScreen:
 NFT list on profile page

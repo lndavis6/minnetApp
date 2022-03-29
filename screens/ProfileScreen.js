@@ -10,6 +10,7 @@ import {
   SafeAreaView,
 } from "react-native";
 import CameraScreen from "./CameraScreen";
+import NFTScreen from "./NFTScreen";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -70,7 +71,7 @@ export default class ProfileScreen extends React.Component {
             </View>
             <Button
               title="Show NFT's"
-              onPress={() => navigation.navigate("CameraScreen")}
+              onPress={() => navigation.navigate("NFTScreen")}
             />
           </View>
         </View>
