@@ -9,9 +9,10 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
+import CameraScreen from "./CameraScreen";
 
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 export default class ProfileScreen extends React.Component {
   constructor() {
@@ -33,6 +34,8 @@ export default class ProfileScreen extends React.Component {
   };
 
   render() {
+    const { navigation } = this.props;
+
     return (
       <SafeAreaView style={styles.container}>
         <View style={{ padding: 20, flexDirection: "row" }}>
@@ -65,16 +68,10 @@ export default class ProfileScreen extends React.Component {
                 <Text>following</Text>
               </View>
             </View>
-            <View
-              style={{
-                borderWidth: 1,
-                width: "100%",
-                marginLeft: 1,
-                alignItems: "center",
-              }}
-            >
-              <Text>Edit Profile</Text>
-            </View>
+            <Button
+              title="Show NFT's"
+              onPress={() => navigation.navigate("CameraScreen")}
+            />
           </View>
         </View>
         <FlatList
@@ -102,7 +99,7 @@ const DATA = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   gridImgContainer: {
     padding: 1,

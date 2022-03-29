@@ -1,0 +1,13 @@
+To do list for Minnet:
+
+PostScreen:
+Choose photo from library
+Choose NFT from wallet
+
+ProfileScreen:
+NFT list on profile page
+Move edit profile to settings gear in the top right
+
+Home:
+Remove comments and likes
+add navigation to end user's profile
