@@ -71,7 +71,10 @@ export default class ProfileScreen extends React.Component {
             </View>
             <Button
               title="Show NFT's"
-              onPress={() => navigation.navigate("NFTScreen")}
+              onPress={() => navigation.navigate(
+                  'NFTScreen',
+                  { name: 'BigGuy' }
+                )}
             />
           </View>
         </View>

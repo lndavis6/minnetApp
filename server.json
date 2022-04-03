@@ -1,0 +1,20 @@
+{
+    "feed": [
+      {
+        "id": 0,
+        "username": "@herobrine",
+        "category": "#testvideo #reactnative #minnet #git #development #github #react",
+        "audio": "Introducing Minnet. The easiest way to enjoy social media",
+        "image": "./assets/images/dopeimg0",
+        "gems": 9444
+      },
+      {
+        "id": 1,
+        "username": "@herobrine",
+        "category": "#reactnative #testvideo #minnet #git #development #github #react",
+        "audio": "Let me tell you about my nice day in Chicago",
+        "image": "./assets/images/chicago.JPG",
+        "gems": 3838
+      }
+    ]
+  }

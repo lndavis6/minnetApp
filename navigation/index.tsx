@@ -17,7 +17,7 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import PostScreen from '../screens/PostScreen';
 import CameraScreen from '../screens/CameraScreen';
 import NFTScreen from '../screens/NFTScreen';
-import HomeScreen from '../screens/HomeScreen'
+import HomeScreen from '../screens/Home/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
