@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StyleSheet,
   Text,
@@ -15,15 +15,21 @@ import NFTScreen from "./NFTScreen";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
+
 export default class ProfileScreen extends React.Component {
   constructor() {
     super();
-    this.state={headerColor:"#fff"};
+    this.state = { headerColor:"#fff"};
+    this.customStyle = this.customStyle.bind(this);
   }
 
-  changeColor(color) {
-
+  customStyle(newColor){
+    return({
+      flex: 1,
+      backgroundColor: newColor,
+    });
   };
+
 
   renderItem = ({ item }) => {
     const imageUrl = "https://reactnative.dev/img/tiny_logo.png";
@@ -41,9 +47,8 @@ export default class ProfileScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
-
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={this.customStyle(this.state.headerColor)}>
         <View style={{ padding: 20, flexDirection: "row" }}>
           <View style={styles.profileImage}>
             <Image
@@ -86,25 +91,33 @@ export default class ProfileScreen extends React.Component {
         <View style={{ flexDirection: "row" }}>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
-              title="Red Header"
+              title="Red"
               onPress={() =>
-                navigation.navigate("NFTScreen", { name: "BigGuy" })
+                this.setState({headerColor:"#C00"})
               }
             />
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
-              title="Blue Header"
+              title="Blue"
               onPress={() =>
-                navigation.navigate("NFTScreen", { name: "BigGuy" })
+                this.setState({headerColor:"#8CF"})
               }
             />
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
-              title="Green Header"
+              title="Green"
               onPress={() =>
-                navigation.navigate("NFTScreen", { name: "BigGuy" })
+                this.setState({headerColor:"#0A2"})
+              }
+            />
+          </View>
+          <View style={{ flex: 1, alignItems: "center" }}>
+            <Button
+              title="Light"
+              onPress={() =>
+                this.setState({headerColor:"#fff"})
               }
             />
           </View>
@@ -134,7 +147,6 @@ const DATA = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: this.state.headerColor,
   },
   gridImgContainer: {
     padding: 1,
