@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  SafeAreaView,
   Dimensions
 } from "react-native";
 import {
@@ -33,7 +34,7 @@ interface Props {
 
 const Feed = ({ play, minnet }) => {
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
         <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
           <View style={styles.profileImage} />
@@ -57,7 +58,7 @@ const Feed = ({ play, minnet }) => {
       <Text style={styles.infoText}>
         {minnet.gems + (minnet.gems !== 1 ? " gems" : " gem")}
       </Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -65,7 +66,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center"
+    justifyContent: "center",
+    opacity: 0.99,
   },
   headerText: {
     textAlign: "center",

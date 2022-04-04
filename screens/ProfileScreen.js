@@ -18,7 +18,12 @@ const windowHeight = Dimensions.get("window").height;
 export default class ProfileScreen extends React.Component {
   constructor() {
     super();
+    this.state={headerColor:"#fff"};
   }
+
+  changeColor(color) {
+
+  };
 
   renderItem = ({ item }) => {
     const imageUrl = "https://reactnative.dev/img/tiny_logo.png";
@@ -69,12 +74,38 @@ export default class ProfileScreen extends React.Component {
                 <Text>following</Text>
               </View>
             </View>
+
             <Button
               title="Show NFT's"
-              onPress={() => navigation.navigate(
-                  'NFTScreen',
-                  { name: 'BigGuy' }
-                )}
+              onPress={() =>
+                navigation.navigate("NFTScreen", { name: "BigGuy" })
+              }
+            />
+          </View>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <View style={{ flex: 1, alignItems: "center" }}>
+            <Button
+              title="Red Header"
+              onPress={() =>
+                navigation.navigate("NFTScreen", { name: "BigGuy" })
+              }
+            />
+          </View>
+          <View style={{ flex: 1, alignItems: "center" }}>
+            <Button
+              title="Blue Header"
+              onPress={() =>
+                navigation.navigate("NFTScreen", { name: "BigGuy" })
+              }
+            />
+          </View>
+          <View style={{ flex: 1, alignItems: "center" }}>
+            <Button
+              title="Green Header"
+              onPress={() =>
+                navigation.navigate("NFTScreen", { name: "BigGuy" })
+              }
             />
           </View>
         </View>
@@ -103,7 +134,7 @@ const DATA = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: this.state.headerColor,
   },
   gridImgContainer: {
     padding: 1,
