@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -15,21 +15,38 @@ import NFTScreen from "./NFTScreen";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-
 export default class ProfileScreen extends React.Component {
   constructor() {
     super();
-    this.state = { headerColor:"#fff"};
+    this.state = {
+      headerColor: "#fff",
+      latitude: null,
+      longitude: null,
+      error: null,
+    };
     this.customStyle = this.customStyle.bind(this);
   }
 
-  customStyle(newColor){
-    return({
+  // componentDidMount({navigator}) {
+  //   navigator.geolocation.getCurrentPosition(
+  //     (position) => {
+  //       this.setState({
+  //         latitude: position.coords.latitude,
+  //         longitude: position.coords.longitude,
+  //         error: null,
+  //       });
+  //     },
+  //     (error) => this.setState({ error: error.message }),
+  //     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+  //   );
+  // }
+
+  customStyle(newColor) {
+    return {
       flex: 1,
       backgroundColor: newColor,
-    });
-  };
-
+    };
+  }
 
   renderItem = ({ item }) => {
     const imageUrl = "https://reactnative.dev/img/tiny_logo.png";
@@ -92,33 +109,25 @@ export default class ProfileScreen extends React.Component {
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
               title="Red"
-              onPress={() =>
-                this.setState({headerColor:"#C00"})
-              }
+              onPress={() => this.setState({ headerColor: "#C00" })}
             />
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
               title="Blue"
-              onPress={() =>
-                this.setState({headerColor:"#8CF"})
-              }
+              onPress={() => this.setState({ headerColor: "#8CF" })}
             />
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
               title="Green"
-              onPress={() =>
-                this.setState({headerColor:"#0A2"})
-              }
+              onPress={() => this.setState({ headerColor: "#0A2" })}
             />
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>
             <Button
               title="Light"
-              onPress={() =>
-                this.setState({headerColor:"#fff"})
-              }
+              onPress={() => this.setState({ headerColor: "#fff" })}
             />
           </View>
         </View>

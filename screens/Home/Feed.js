@@ -43,7 +43,7 @@ const Feed = ({ play, minnet }) => {
         <MaterialCommunityIcons name="dots-vertical" size={26} color="gray" />
       </View>
 
-      <Image style={styles.image} source={{ uri: minnet.image }} />
+      <Image style={styles.image} source={{ uri: minnet.image}} />
       <View
         style={{
           flexDirection: "row",

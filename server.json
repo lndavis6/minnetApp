@@ -5,7 +5,7 @@
         "username": "@herobrine",
         "category": "#testvideo #reactnative #minnet #git #development #github #react",
         "audio": "Introducing Minnet. The easiest way to enjoy social media",
-        "image": "./assets/images/dopeimg0",
+        "image": "https://reactnative.dev/img/tiny_logo.png",
         "gems": 9444
       },
       {
@@ -13,7 +13,7 @@
         "username": "@herobrine",
         "category": "#reactnative #testvideo #minnet #git #development #github #react",
         "audio": "Let me tell you about my nice day in Chicago",
-        "image": "./assets/images/chicago.JPG",
+        "image": "https://reactnative.dev/img/tiny_logo.png",
         "gems": 3838
       }
     ]
