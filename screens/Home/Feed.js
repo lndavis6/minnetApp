@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   StyleSheet,
   Text,
@@ -33,6 +33,7 @@ interface Props {
 }
 
 const Feed = ({ play, minnet }) => {
+  const [gemColor, setGemColor] = useState(false);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
@@ -51,8 +52,8 @@ const Feed = ({ play, minnet }) => {
           padding: 12,
         }}
       >
-        <TouchableOpacity onPress={() => navigation.navigate("Modal")}>
-          <FontAwesome name="diamond" size={32} color="black" />
+        <TouchableOpacity onPress={() => setGemColor(!gemColor)}>
+          <FontAwesome name="diamond" size={32} color={gemColor ? "green" : "grey"} />
         </TouchableOpacity>
       </View>
       <Text style={styles.infoText}>
