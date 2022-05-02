@@ -34,6 +34,10 @@ interface Props {
 
 const Feed = ({ play, minnet }) => {
   const [gemColor, setGemColor] = useState(false);
+  const clapIcon = <Image
+          style={styles.img}
+          source={{uri: 'https://imgs.search.brave.com/j_jwWXcdf1SecfPIU7wdIzJgCp4kEqbIRGQAk1xDeFY/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9jcmVh/emlsbGEtc3RvcmUu/ZnJhMS5kaWdpdGFs/b2NlYW5zcGFjZXMu/Y29tL2Vtb2ppcy81/NTg2OS9jbGFwcGlu/Zy1oYW5kcy1lbW9q/aS1jbGlwYXJ0LW1k/LnBuZw'}}
+        />
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
@@ -55,6 +59,12 @@ const Feed = ({ play, minnet }) => {
         <TouchableOpacity onPress={() => setGemColor(!gemColor)}>
           <FontAwesome name="diamond" size={32} color={gemColor ? "green" : "grey"} />
         </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.clapButton}
+          onPress={clapHand}
+        >
+            {clapIcon}
+        </TouchableOpacity>
       </View>
       <Text style={styles.infoText}>
         {minnet.gems + (minnet.gems !== 1 ? " gems" : " gem")}
@@ -70,6 +80,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     opacity: 0.99,
   },
+  clapButton: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "white",
+    padding: 10,
+    margin: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   headerText: {
     textAlign: "center",
     flex: 1,
@@ -84,6 +104,10 @@ const styles = StyleSheet.create({
     height: width * 0.1,
     borderRadius: width * 0.4,
     borderWidth: 1
+  },
+  img: {
+    width: 20,
+    height: 20
   },
   image: {
     width,
