@@ -40,6 +40,10 @@ export default class HomeScreen extends React.Component {
   render() {
     const { hasCheckedAsyncStorage, isFirstLaunch } = this.state;
 
+    setTimeout(() => {
+      console.log("loading")
+    }, 1000);
+
     if (!hasCheckedAsyncStorage) {
       return null;
     }
@@ -47,7 +51,7 @@ export default class HomeScreen extends React.Component {
     return isFirstLaunch ?
 
 
-      <Text>This is the first launch</Text> :
+      <Text>Welcome to Minnet!</Text> :
 
 
       <SafeAreaView style={styles.container}>

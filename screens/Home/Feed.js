@@ -35,7 +35,7 @@ interface Props {
 
 const Feed = ({ play, minnet }) => {
   const [gemColor, setGemColor] = useState(false);
-  const [countClaps, setCountClaps] = useState(0);
+  const [countClaps, setCountClaps] = useState(1);
   const [claps, setClaps] = useState([]);
   const clapIcon = <Image
           style={styles.img}
