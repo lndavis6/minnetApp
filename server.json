@@ -3,16 +3,18 @@
       {
         "id": 0,
         "username": "@herobrine",
+        "title": "Elephant",
         "category": "#testvideo #reactnative #minnet #git #development #github #react",
-        "audio": "Introducing Minnet. The easiest way to enjoy social media",
+        "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/BabyElephantWalk60.wav",
         "image": "https://reactnative.dev/img/tiny_logo.png",
         "gems": 9444
       },
       {
         "id": 1,
         "username": "@herobrine",
+        "title": "Panther",
         "category": "#reactnative #testvideo #minnet #git #development #github #react",
-        "audio": "Let me tell you about my nice day in Chicago",
+        "audio": "https://www2.cs.uic.edu/~i101/SoundFiles/PinkPanther60.wav",
         "image": "https://reactnative.dev/img/tiny_logo.png",
         "gems": 3838
       }

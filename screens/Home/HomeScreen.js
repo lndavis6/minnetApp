@@ -17,19 +17,39 @@ import {
 import ViewPager from "@react-native-community/viewpager";
 import server from "../../server.json";
 import Feed from "./Feed";
+import checkIfFirstLaunch from '../../utils/checkIfFirstLaunch';
+
 
 const { width, height } = Dimensions.get("window");
 
 export default class HomeScreen extends React.Component {
   constructor() {
     super();
+    this.state = {
+      isFirstLaunch: false,
+      hasCheckedAsyncStorage: false,
+      active: true 
+    };
   }
 
-  // TODO: set to inactiveactive when tapped
-  state = { active: true };
+  async componentDidMount() {
+    const isFirstLaunch = await checkIfFirstLaunch();
+    this.setState({ isFirstLaunch, hasCheckedAsyncStorage: true });
+  }
 
   render() {
-    return (
+    const { hasCheckedAsyncStorage, isFirstLaunch } = this.state;
+
+    if (!hasCheckedAsyncStorage) {
+      return null;
+    }
+
+    return isFirstLaunch ?
+
+
+      <Text>This is the first launch</Text> :
+
+
       <SafeAreaView style={styles.container}>
         <ViewPager orientation="vertical" style={{ flex: 1 }} initialPage={0}>
           {server.feed.map((item) => (
@@ -42,7 +62,7 @@ export default class HomeScreen extends React.Component {
           ))}
         </ViewPager>
       </SafeAreaView>
-    );
+    ;
   }
 }
 

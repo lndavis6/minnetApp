@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {
   StyleSheet,
   Text,
@@ -7,7 +7,8 @@ import {
   Image,
   FlatList,
   SafeAreaView,
-  Dimensions
+  Dimensions,
+  Animated
 } from "react-native";
 import {
   FontAwesome,
@@ -34,10 +35,27 @@ interface Props {
 
 const Feed = ({ play, minnet }) => {
   const [gemColor, setGemColor] = useState(false);
+  const [countClaps, setCountClaps] = useState(0);
+  const [claps, setClaps] = useState([]);
   const clapIcon = <Image
           style={styles.img}
           source={{uri: 'https://imgs.search.brave.com/j_jwWXcdf1SecfPIU7wdIzJgCp4kEqbIRGQAk1xDeFY/rs:fit:800:800:1/g:ce/aHR0cHM6Ly9jcmVh/emlsbGEtc3RvcmUu/ZnJhMS5kaWdpdGFs/b2NlYW5zcGFjZXMu/Y29tL2Vtb2ppcy81/NTg2OS9jbGFwcGlu/Zy1oYW5kcy1lbW9q/aS1jbGlwYXJ0LW1k/LnBuZw'}}
         />
+  
+  const RenderBubble = () => {
+
+    return(
+      claps.map(newCount=><BubbleHand newCount={newCount} key={newCount}/>)
+    )
+  }
+
+  const clapHand = () => {
+      console.log("yo!", countClaps)
+      setCountClaps(
+        countClaps+1
+      );
+      claps.push(countClaps);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.infoContainer}>
@@ -65,15 +83,67 @@ const Feed = ({ play, minnet }) => {
         >
             {clapIcon}
         </TouchableOpacity>
+        {RenderBubble()}
+
+
       </View>
       <Text style={styles.infoText}>
         {minnet.gems + (minnet.gems !== 1 ? " gems" : " gem")}
       </Text>
+
     </SafeAreaView>
   );
 };
 
+const BubbleHand = (props) => {
+
+  const [bubbleAnimation, setBubbAnimation] =  useState(new Animated.Value(0));
+  const [bubbleAnimationOpacity, setBubbleAnimationOpacity] =  useState(new Animated.Value(1));
+
+  useEffect(() => {
+    Animated.parallel([
+      Animated.timing(bubbleAnimation, {
+        toValue: -550,
+        duration: 2000,
+        useNativeDriver:true,
+    }),
+      Animated.timing(bubbleAnimationOpacity, {
+        toValue: 0,
+        duration: 4000,
+        useNativeDriver:true,
+      })
+    
+    ]).start();
+    
+  })
+
+  const bubble = {
+    transform: [
+      {translateY: bubbleAnimation}
+    ],
+    opacity:bubbleAnimationOpacity,
+  }
+
+  return(
+    <Animated.View style={[styles.bubble, bubble]}>
+      <Text style={styles.tinyText}>
+        +{props.newCount}
+      </Text>
+    </Animated.View>
+  )
+}
+
 const styles = StyleSheet.create({
+  bubble: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "#fc5c65",
+    padding: 10,
+    margin: 5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   container: {
     flex: 1,
     backgroundColor: "#fff",
@@ -124,6 +194,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingLeft: 10,
     fontWeight: "bold"
+  },
+  tinyText: {
+    fontSize: 5, 
   }
 });
 
